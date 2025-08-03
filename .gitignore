@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Jupyter
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.venv/
+venv/
+
+# Reports and exports
+*.txt
+*.log
+*.csv
+*.db
+
+# Misc
+*.swp
+*.bak
+*.tmp
+
+# Documentation
+*.pdf
+*.md
+
+# Ignore dashboard and summary exports
+!documentation/*.md
+!documentation/*.pdf
