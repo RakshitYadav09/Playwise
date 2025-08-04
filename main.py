@@ -1,4 +1,3 @@
-# Import all required modules and their menu handlers
 from playlist_engine import Playlist, handle_playlist_operations
 from playback_history import PlaybackHistory, handle_playback_history
 from song_rating_tree import RatingBST, handle_song_ratings
@@ -7,9 +6,6 @@ from sort_utils import handle_sort_menu
 from dashboard import handle_dashboard_export
 from pinned_songs import handle_shuffle_menu
 from playlist_summary import handle_summary_export
-
-
-
 
 # This function shows the main menu options for the user
 def show_main_menu():
@@ -28,48 +24,40 @@ def show_main_menu():
 
 # Main function that runs the music engine
 def main():
-    # Initialize core modules
     playlist = Playlist("Playwise Playlist 1")
     history = PlaybackHistory()
     rating_tree = RatingBST()
     lookup = SongLookup()
 
-    # --- Demo Songs: Pre-populate playlist with real and creative choices ---
     demo_songs = [
-        ("Blinding Lights", "The Weeknd", "3:20"),
-        ("Shape of You", "Ed Sheeran", "3:53"),
-        ("Levitating", "Dua Lipa", "3:23"),
-        ("Uptown Funk", "Mark Ronson ft. Bruno Mars", "4:30"),
-        ("Bohemian Rhapsody", "Queen", "5:55"),
-        ("Bad Guy", "Billie Eilish", "3:14"),
-        ("Believer", "Imagine Dragons", "3:24"),
-        ("Rolling in the Deep", "Adele", "3:48"),
-        ("Can't Stop the Feeling!", "Justin Timberlake", "3:56"),
-        ("Closer", "The Chainsmokers ft. Halsey", "4:05"),
-        # A few creative ones for fun:
+        ("Red Eyes", "The War on Drugs", "4:59"),
+        ("Atlas", "Battles", "6:07"),
+        ("Elephant Gun", "Beirut", "5:44"),
+        ("The Rip", "Portishead", "4:29"),
+        ("Wolf Like Me", "TV on the Radio", "4:39"),
+        ("The Curse", "Agnes Obel", "5:48"),
+        ("The Night We Met", "Lord Huron", "3:28"),
+        ("New Slang", "The Shins", "3:51"),
+        ("First Breath After Coma", "Explosions in the Sky", "9:33"),
+        ("Heartbeats", "José González", "2:40"),
     ]
     for title, artist, duration in demo_songs:
         playlist.add_song(title, artist, duration)
         lookup.add_song(playlist.tail)
 
-    # Start the application loop
     while True:
         show_main_menu()
         choice = input("Enter your choice: ")
 
-        # Module 1: Playlist Operations (add, delete, move, etc.)
         if choice == "1":
             handle_playlist_operations(playlist, lookup)
-
-        # Module 2: Playback History (stack-based undo feature)
+            
         elif choice == "2":
             handle_playback_history(playlist, history)
 
-        # Module 3: Song Ratings using Binary Search Tree
         elif choice == "3":
             handle_song_ratings(playlist, rating_tree)
 
-        # Module 4: Instant Song Lookup using Hash Map
         elif choice == "4":
             handle_song_lookup(lookup)
             
@@ -85,16 +73,12 @@ def main():
         elif choice == "8":
             handle_summary_export(playlist)
 
-
-        # Exit the program
         elif choice == "0":
-            print("Exiting PlayWise. Thank you for using the app.")
+            print("Exiting PlayWise.")
             break
-
-        # Handle invalid menu choices
+        
         else:
             print("Invalid choice. Please try again.")
 
-# This ensures the program only runs when executed directly
 if __name__ == "__main__":
     main()

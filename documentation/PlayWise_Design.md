@@ -107,8 +107,6 @@ Pinned Songs
 Summary/Dashboard
 ```
 
-![Playlist Engine Diagram](https://i.imgur.com/2QwQw2B.png)
-
 ## 6. Pseudocode for Major Algorithms
 
 ### Add Song to Playlist
